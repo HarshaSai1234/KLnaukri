@@ -15,17 +15,17 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" href="{% url 'adminapphomepage' %}">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Link</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
+            PFSD Concepts
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="{% url 'printer' %}">Printer</a></li>
             <li><a class="dropdown-item" href="#">Another action</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Something else here</a></li>
@@ -33,6 +33,12 @@
         </li>
         <li class="nav-item">
           <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">SignUp</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">SignIn</a>
         </li>
       </ul>
       <form class="d-flex" role="search">
@@ -45,5 +51,23 @@
 {% block body %}
 
 {% endblock %}
+<footer id="sticky-footer" class="flex-shrink-0 py-sm-1">
+    <div class="container text-center">
+      <small>Copyright &copy; P Harsha Sai - K L University. All rights reserved</small>
+    </div>
+  </footer>
+<style>
+  #sticky-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: blue; /* Set the desired background color */
+  color: white; /* Set the desired text color */
+  padding: 10px; /* Adjust the padding as needed */
+  font-weight: bold;
+}
+
+</style>
 </body>
 </html>
