@@ -1,0 +1,25 @@
+{% extends 'navbar/adminnavbar.html'%}
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TimeTable</title>
+    <link type="text/css" rel="stylesheet" href="{% static 'timetable.css' %}">
+</head>
+<body>
+{% block body %}
+<table style="width:100% background">
+    <tr class="a1">
+        <th>Monday</th>
+        <th>Tuesday</th>
+    </tr>
+    <tr>
+        <td>PFSD</td>
+        <td>CIS</td>
+    </tr>
+</table>
+{% endblock %}
+</body>
+</html>
