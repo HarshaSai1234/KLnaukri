@@ -16,7 +16,8 @@
         <!-- CREATE -->
         <div class="col">
             <h2>Create</h2>
-            <form>
+            <form method="post" action="{% url 'crud_insert' %}">
+                {% csrf_token %}
                 <div class="input-group">
                 <label for="empid">Employee ID</label>
                 <input type="number" id="empid" name="empid" placeholder="Enter Employee ID">
