@@ -6,7 +6,8 @@ from .models import *
 def employerhomepage(request):
     return render(request,'employerapp/employerhomepage.html')
 def crudfunction(request):
-    return render(request,'employerapp/crudfunction.html')
+    employees = Employerdetails.objects.all()
+    return render(request,'employerapp/crudfunction.html', {'employees':employees})
 def crud_insert(request):
     if request.method=="POST":
         empid=request.POST['empid']
@@ -19,7 +20,6 @@ def crud_insert(request):
         print(emploc)
         print(empphone)
         print(empemail)
-        redirect(crudfunction)
 
         add=Employerdetails(
             empid=empid,
@@ -29,4 +29,17 @@ def crud_insert(request):
             empemail=empemail
         )
         add.save()
+        return redirect('crudfunction')
+
     return render(request,'employerapp/crudfunction.html')
+def read_employee(request):
+    employees = Employerdetails.objects.all()
+    selected_emp=None
+    if request.method=="POST":
+        read_empid=request.POST.get('read_empid')
+        selected_emp=Employerdetails.objects.filter(empid=read_empid).first()
+    context={
+        'employees':employees,
+        'selected_emp':selected_emp
+    }
+    return render(request,'employerapp/crudfunction.html',context)

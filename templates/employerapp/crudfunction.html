@@ -42,7 +42,27 @@
         <!-- READ -->
         <div class="col">
             <h2>Read</h2>
-
+            <form method="post" action="{% url 'read_employee' %}">
+                {% csrf_token %}
+                <select name="read_empid" required>
+                    <option value="">--Select Employee ID--</option>
+                    {% for emp in employees %}
+                        <option value="{{ emp.empid }}">{{ emp.empid }}</option>
+                    {% endfor %}
+                </select>
+                <br><br>
+                <button class="btn" type="submit" name="read">View</button>
+            </form>
+            <br>
+            {% if selected_emp %}
+            <div class="result">
+                <p><b>ID:</b> {{ selected_emp.empid }}</p>
+                <p><b>Name:</b> {{ selected_emp.empname }}</p>
+                <p><b>Location:</b> {{ selected_emp.emplocation }}</p>
+                <p><b>Phone:</b> {{ selected_emp.empphone }}</p>
+                <p><b>Email:</b> {{ selected_emp.empemail }}</p>
+            </div>
+            {% endif %}
         </div>
 
         <!-- UPDATE -->
