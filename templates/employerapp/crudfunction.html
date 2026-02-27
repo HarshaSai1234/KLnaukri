@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>CRUD Functions</title>
     <link rel="stylesheet" href="{% static 'css/crud.css' %}">
 </head>
 <body>
@@ -108,12 +108,30 @@
         <!-- DELETE -->
         <div class="col">
             <h2>Delete</h2>
-        </div>
+            <form method="post" action="{% url 'delete_employee' %}">
+        {% csrf_token %}
 
-    </div>
-    <br><br>
-    <button class="btn" onclick="window.location.href='{% url "adminapphomepage" %}'" style="width: 500px; text-align: center; display: block; margin: 0 auto;">Home Page</button>
+        <label>Select Employee ID</label>
+        <select name="empid" required>
+            <option value="">-- Select Emp ID --</option>
+            {% for emp in employees %}
+                <option value="{{ emp.empid }}">{{ emp.empid }}</option>
+            {% endfor %}
+        </select>
+<br><br>
+        <button class="btn delete-btn" type="submit">
+            Delete
+        </button>
+    </form>
+
+    {% if delete_msg %}
+        <div class="result">{{ delete_msg }}</div>
+    {% endif %}
 </div>
+        </div>
+    <br><br>
+        <button class="btn" onclick="window.location.href='{% url "adminapphomepage" %}'" style="width: 500px; text-align: center; display: block; margin: 0 auto;">Home Page</button>
+    </div>
 {% endblock %}
 </body>
 </html>

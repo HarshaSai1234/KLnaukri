@@ -8,7 +8,7 @@
 /* Page */
 body {
     font-family: Arial, sans-serif;
-    background: #f4f6f8;
+    background: white;
     min-height: 100vh;
 }
 
@@ -28,7 +28,7 @@ body {
 
 /* Column cards */
 .col {
-    background-color: aquamarine;
+    background-color: #0F172A;
     padding: 20px;
     border-radius: 12px;
     text-align: center;
@@ -79,7 +79,7 @@ body {
 .btn {
     width: 100%;
     padding: 12px;
-    background-color: #0d6efd;
+    background-color: #22D3EE;
     color: white;
     font-size: 16px;
     font-weight: 600;
