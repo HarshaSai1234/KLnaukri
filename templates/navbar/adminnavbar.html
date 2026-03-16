@@ -8,7 +8,7 @@
 </head>
 <body><nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <img src="{% static 'images/logo.png' %}" alt="logo" width="4%" height="50px">
+    <a href="https://github.com/HarshaSai1234/KLnaukri"><img src="{% static 'images/logo.png' %}" alt="logo" width="100%" height="50px"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -34,6 +34,9 @@
                                     <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="{% url 'profilelist' %}">Profile List</a></li>
           </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'weather' %}">Weather</a>
         </li>
       </ul>
       <ul class="navbar-nav ms-auto">
@@ -73,7 +76,6 @@
   padding: 10px; /* Adjust the padding as needed */
   font-weight: bold;
 }
-
 </style>
 </body>
 </html>

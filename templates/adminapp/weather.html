@@ -1,0 +1,54 @@
+{% extends 'navbar/adminnavbar.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather</title>
+</head>
+<body>
+{% block body %}
+<div class="container mt-5">
+    <div class="card shadow-lg p-4">
+        <h2 class="text-center mb-4 text-primary">Weather Checker - 2400030037</h2>
+        <form method="post" class="text-center">
+            {% csrf_token %}
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <input type="text" name="city" class="form-control mb-3" placeholder="Enter City Name" required>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary px-4">
+                Check Weather
+            </button>
+        </form>
+        <!-- ERROR MESSAGE -->
+        {% if error %}
+        <div class="alert alert-danger mt-3 text-center">
+            {{ error }}
+        </div>
+        {% endif %}
+        <!-- WEATHER OUTPUT -->
+        {% if weather.city %}
+        <div class="card mt-4 text-center border-success">
+            <div class="card-body">
+                <h4 class="card-title text-success">
+                    Weather in {{ weather.city }}
+                </h4>
+                <p class="card-text">
+                    <strong>Temperature:</strong> {{ weather.temperature }} °C
+                </p>
+                <p class="card-text">
+                    <strong>Humidity:</strong> {{ weather.humidity }}%
+                </p>
+                <p class="card-text">
+                    <strong>Description:</strong> {{ weather.description }}
+                </p>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+</body>
+</html>
