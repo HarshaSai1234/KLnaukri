@@ -1,19 +1,47 @@
 {% extends 'navbar/adminnavbar.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Sign Up</title>
-</head>
-<body>
-    {% block body %}
+
+{% block body %}
+<div class="signup-container">
     <h2>Sign Up</h2>
     <form method="POST" action="{% url 'signup' %}">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="btn-btn-success">Register</button>
+        <button type="submit" class="btn btn-success">Register</button>
     </form>
-    {% endblock %}
-</body>
+</div>
+{% endblock %}
+<style>
+
+    .signup-container{
+        width:420px;
+        margin:50px auto;
+        background:white;
+        padding:30px;
+        border-radius:10px;
+        box-shadow:0px 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .signup-container h2{
+        text-align:center;
+        margin-bottom:20px;
+        color:#333;
+    }
+
+    .signup-container input,
+    .signup-container select{
+        width:100%;
+        padding:8px;
+        margin-top:5px;
+        margin-bottom:15px;
+        border:1px solid #ccc;
+        border-radius:5px;
+    }
+
+    .btn-success{
+        width:100%;
+        padding:10px;
+        font-size:16px;
+    }
+    </style>
 </html>
